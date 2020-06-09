@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 14.00
+# Visual Studio 2015
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CplxPointAvg", "CplxPointAvg.vcxproj", "{21BD849D-33FC-4BA8-BB4D-67C5CA6EC7D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21BD849D-33FC-4BA8-BB4D-67C5CA6EC7D2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{21BD849D-33FC-4BA8-BB4D-67C5CA6EC7D2}.Debug|Win32.Build.0 = Debug|Win32
+		{21BD849D-33FC-4BA8-BB4D-67C5CA6EC7D2}.Release|Win32.ActiveCfg = Release|Win32
+		{21BD849D-33FC-4BA8-BB4D-67C5CA6EC7D2}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

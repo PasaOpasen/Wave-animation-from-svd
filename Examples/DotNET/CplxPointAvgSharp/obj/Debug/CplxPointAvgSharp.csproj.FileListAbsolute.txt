@@ -1,0 +1,13 @@
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\bin\Debug\CplxPointAvgSharp.exe.config
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\bin\Debug\CplxPointAvgSharp.exe
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\bin\Debug\CplxPointAvgSharp.pdb
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\bin\Debug\stdole.dll
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.csprojAssemblyReference.cache
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.csproj.ResolveComReference.cache
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.About.resources
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.FormCplxPointAvg.resources
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.csproj.GenerateResource.cache
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.csproj.CoreCompileInputs.cache
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.csproj.CopyComplete
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.exe
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Examples\DotNET\CplxPointAvgSharp\obj\Debug\CplxPointAvgSharp.pdb

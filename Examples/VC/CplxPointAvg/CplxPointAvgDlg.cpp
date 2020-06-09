@@ -1,0 +1,413 @@
+// CplxPointAvgDlg.cpp : implementation file
+//
+
+#include "stdafx.h"
+#include "CplxPointAvg.h"
+#include "CplxPointAvgDlg.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+#define THIS_FILE __FILE__
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+// CAboutDlg dialog used for App About
+
+class CAboutDlg : public CDialog
+{
+public:
+	CAboutDlg();
+
+// Dialog Data
+	//{{AFX_DATA(CAboutDlg)
+	enum { IDD = IDD_ABOUTBOX };
+	//}}AFX_DATA
+
+	// ClassWizard generated virtual function overrides
+	//{{AFX_VIRTUAL(CAboutDlg)
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	//}}AFX_VIRTUAL
+
+// Implementation
+protected:
+	//{{AFX_MSG(CAboutDlg)
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
+{
+	//{{AFX_DATA_INIT(CAboutDlg)
+	//}}AFX_DATA_INIT
+}
+
+void CAboutDlg::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	//{{AFX_DATA_MAP(CAboutDlg)
+	//}}AFX_DATA_MAP
+}
+
+BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
+	//{{AFX_MSG_MAP(CAboutDlg)
+		// No message handlers
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// CCplxPointAvgDlg dialog
+
+CCplxPointAvgDlg::CCplxPointAvgDlg(CWnd* pParent /*=NULL*/)
+	: CDialog(CCplxPointAvgDlg::IDD, pParent)
+{
+	//{{AFX_DATA_INIT(CCplxPointAvgDlg)
+		// NOTE: the ClassWizard will add member initialization here
+	//}}AFX_DATA_INIT
+	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
+	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+}
+
+void CCplxPointAvgDlg::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	//{{AFX_DATA_MAP(CCplxPointAvgDlg)
+		// NOTE: the ClassWizard will add DDX and DDV calls here
+	//}}AFX_DATA_MAP
+}
+
+BEGIN_MESSAGE_MAP(CCplxPointAvgDlg, CDialog)
+	//{{AFX_MSG_MAP(CCplxPointAvgDlg)
+	ON_WM_SYSCOMMAND()
+	ON_WM_PAINT()
+	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_SELECT_FILE, OnSelectFile)
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// CCplxPointAvgDlg message handlers
+
+BOOL CCplxPointAvgDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// Add "About..." menu item to system menu.
+
+	// IDM_ABOUTBOX must be in the system command range.
+	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
+	ASSERT(IDM_ABOUTBOX < 0xF000);
+
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	if (pSysMenu != NULL)
+	{
+		CString strAboutMenu;
+		strAboutMenu.LoadString(IDS_ABOUTBOX);
+		if (!strAboutMenu.IsEmpty())
+		{
+			pSysMenu->AppendMenu(MF_SEPARATOR);
+			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
+		}
+	}
+
+	// Set the icon for this dialog.  The framework does this automatically
+	//  when the application's main window is not a dialog
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	// TODO: Add extra initialization here
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}
+
+void CCplxPointAvgDlg::OnSysCommand(UINT nID, LPARAM lParam)
+{
+	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
+	{
+		CAboutDlg dlgAbout;
+		dlgAbout.DoModal();
+	}
+	else
+	{
+		CDialog::OnSysCommand(nID, lParam);
+	}
+}
+
+// If you add a minimize button to your dialog, you will need the code below
+//  to draw the icon.  For MFC applications using the document/view model,
+//  this is automatically done for you by the framework.
+
+void CCplxPointAvgDlg::OnPaint()
+{
+	if (IsIconic())
+	{
+		CPaintDC dc(this); // device context for painting
+
+		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
+
+		// Center icon in client rectangle
+		int cxIcon = GetSystemMetrics(SM_CXICON);
+		int cyIcon = GetSystemMetrics(SM_CYICON);
+		CRect rect;
+		GetClientRect(&rect);
+		int x = (rect.Width() - cxIcon + 1) / 2;
+		int y = (rect.Height() - cyIcon + 1) / 2;
+
+		// Draw the icon
+		dc.DrawIcon(x, y, m_hIcon);
+	}
+	else
+	{
+		CDialog::OnPaint();
+	}
+}
+
+// The system calls this to obtain the cursor to display while the user drags
+//  the minimized window.
+HCURSOR CCplxPointAvgDlg::OnQueryDragIcon()
+{
+	return (HCURSOR) m_hIcon;
+}
+
+void CCplxPointAvgDlg::OnSelectFile()
+// This function is called when the 'Select PSV File...' Button is pressed on the dialog.
+// Asks for a PSV filename, instantiates a PolyFile object, does the average calculations,
+// asks for a save file name and saves the average data to an Ascii file.
+{
+	CString strFileName;
+	{
+		const TCHAR* cstrDefaultExt = _T("svd");
+		const TCHAR* cstrFilter = _T("ScanFiles (*.svd)|*.svd|Single Point Files (*.svd)|*.pvd|PSV Files (*.svd; *.pvd)|*.svd; *.pvd|All Files (*.*)|*.*||");
+		CFileDialog cFileDlg(TRUE, cstrDefaultExt, NULL, OFN_HIDEREADONLY | OFN_FILEMUSTEXIST, cstrFilter, this);
+		if (cFileDlg.DoModal() == IDCANCEL)
+			return;
+		strFileName = cFileDlg.GetPathName();
+	}
+
+	// from here on catch all COM-errors that are generated by PolyFile
+	try
+	{
+		// create instance of PolyFile COM object
+		IPolyFile11Ptr spIPolyFile;
+		HRESULT hr = spIPolyFile.CreateInstance(__uuidof(::PolyFile));
+		if (FAILED(hr)) throw _com_error(hr);
+
+		spIPolyFile->Open(_bstr_t(strFileName));
+
+		// get and check file type - we accept VibSoft and PSV files
+		// VibSoft files have only a single point so the averaging has demonstration purposes only.
+		PTCFileID ptcFileID = spIPolyFile->Version->FileID;
+		switch (ptcFileID)
+		{
+			case ptcFileIDPSVFile:
+			case ptcFileIDVibSoftFile:
+			case ptcFileIDCombinedFile:
+				break;
+			default:
+				CString strMsg = strFileName;
+				strFileName += _T(" is not an VibSoft or PSV file");
+				AfxMessageBox(strMsg, MB_OK | MB_ICONEXCLAMATION);
+				return;
+		}
+
+		// provide access to the acquisition properties
+		IAcquisitionInfoModesPtr spIAcqInfoModes = spIPolyFile->Infos->AcquisitionInfoModes;
+
+		// check the acquisition mode - should be FFT
+		PTCAcqMode ptcAcqMode = spIAcqInfoModes->ActiveMode;
+		if (ptcAcqMode != ptcAcqModeFft)
+		{
+			CString strMsg(_T("Please select a file with acquisition mode FFT"));
+			AfxMessageBox(strMsg, MB_OK | MB_ICONEXCLAMATION);
+			return;
+		}
+
+		// hold average data in array for real and imaginary part
+		std::vector<float> vec_fAvgReal;
+		std::vector<float> vec_fAvgImag;
+
+		// display used will be returned by CalcComplexAverage
+		IDisplay2Ptr spIDisplayReal;
+		IDisplay2Ptr spIDisplayImag;
+		IXAxisPtr   spIXAxis;
+		CalcComplexAverage(spIPolyFile, vec_fAvgReal, vec_fAvgImag, spIDisplayReal, spIDisplayImag, spIXAxis);
+
+		// select a filename for saving the data
+		{
+			const TCHAR* cstrDefaultExt = _T("txt");
+			const TCHAR* cstrFilter = _T("Microsoft Excel (*.xls)|*.xls|Ascii Files (*.txt)|*.txt|All Files (*.*)|*.*||");
+			CFileDialog cFileDlg(FALSE, cstrDefaultExt, NULL, OFN_OVERWRITEPROMPT, cstrFilter, this);
+			if (cFileDlg.DoModal() == IDCANCEL)
+				return;
+
+			strFileName = cFileDlg.GetFolderPath() + "\\" + cFileDlg.GetFileName();
+		}
+
+		SaveToAscii(spIPolyFile, strFileName, vec_fAvgReal, vec_fAvgImag, spIDisplayReal, spIDisplayImag, spIXAxis);
+
+		spIPolyFile->Close();
+
+		AfxMessageBox(_T("Complex Point Average data has been saved successfully"), MB_OK | MB_ICONINFORMATION);
+	}
+	catch (std::exception& e)
+	{
+		CString strMsg(e.what());
+		AfxMessageBox(strMsg, MB_OK | MB_ICONEXCLAMATION);
+	}
+	catch (_com_error& e)
+	{
+		CString strMsg;
+		strMsg = (TCHAR*) e.Description();
+		strMsg += _T("\n");
+		strMsg += (TCHAR*) e.ErrorMessage();
+		AfxMessageBox(strMsg, MB_OK | MB_ICONEXCLAMATION);
+	}
+} // OnSelectFile()
+
+void CCplxPointAvgDlg::CalcComplexAverage(IPolyFile11Ptr& spIPolyFile, std::vector<float>& vec_fAvgReal, std::vector<float>& vec_fAvgImag, IDisplay2Ptr& spIDisplayReal, IDisplay2Ptr& spIDisplayImag, IXAxisPtr& spIXAxis)
+{
+	CWaitCursor cWait;
+
+	IPointDomains2Ptr spIPointDomains = spIPolyFile->GetPointDomains(ptcBuildPointDataXYZ);
+
+	// select FFT domain
+	IPointDomain4Ptr spIDomain;
+	if (spIPointDomains->Exists[L"FFT"] == VARIANT_FALSE)
+		throw std::exception("The file does not contain a point domain \"FFT\"");
+	spIDomain = spIPointDomains->Item[L"FFT"];
+
+	_bstr_t bstrChannel;
+	if (spIDomain->Channels->Exists[L"Vib"] == VARIANT_TRUE)
+		bstrChannel = L"Vib";
+	else if (spIDomain->Channels->Exists[L"Vib X"] == VARIANT_TRUE)
+		bstrChannel = L"Vib X";
+	else
+		throw std::exception("The file does not contain a channel \"Vib\" or \"Vib X\".");
+
+	if (spIDomain->Channels->Item[bstrChannel]->Signals->Exists[L"Velocity"] == VARIANT_FALSE)
+		throw std::exception("The file does not contain a signal \"Velocity\".");
+	ISignal5Ptr spISignal = spIDomain->Channels->Item[bstrChannel]->Signals->Item["Velocity"];
+	if (spISignal->Displays->Exists[L"Real"] == VARIANT_FALSE || spISignal->Displays->Exists[L"Imaginary"] == VARIANT_FALSE)
+		throw std::exception("The vibrometer channel of the file does not contain complex data.");
+
+	// construct display objects for real and imaginary part
+	spIDisplayReal = spISignal->Displays->Item[L"Real"];
+	spIDisplayImag = spISignal->Displays->Item[L"Imaginary"];
+
+	// mark first point because we can use its data directly
+	bool bFirstPoint = true;
+
+	long lValidPoints = 0;
+
+	// loop over all measurement points
+	IDataPoint7Ptr spIDataPoint;
+	IDataPoints3Ptr spIDataPoints = spIDomain->DataPoints;
+	spIXAxis = spIDomain->GetXAxis(spIDisplayReal);
+
+	long lPointCount = spIDataPoints->Count;
+	for (long lDataPoint = 1; lDataPoint <= lPointCount; ++lDataPoint)
+	{
+		spIDataPoint = spIDataPoints->Item[lDataPoint];
+		// check if measurement point is valid - in VibSoft we can't do that because there
+		// are no measurement points available for single point files
+		bool bValid = true;
+		if (ptcFileIDPSVFile == spIPolyFile->Version->FileID)
+		{
+			// test valid flag of the point status
+			bValid = (ptcScanStatusValid & spIDataPoint->MeasPoint->ScanStatus) != 0;
+		}
+		if (!bValid) continue;
+
+		// get the data
+		
+		SAFEARRAY* saReal=NULL;
+		saReal=spIDataPoint->GetData(spIDisplayReal, 0);
+		SAFEARRAY* saImag=NULL;
+		saImag=spIDataPoint->GetData(spIDisplayImag, 0);
+		if (bFirstPoint)
+		{
+			CopySafeArrayToVector(saReal, vec_fAvgReal);
+			CopySafeArrayToVector(saImag, vec_fAvgImag);
+			bFirstPoint = false;
+		}
+		else
+		{
+			std::vector<float> vec_fReal;
+			std::vector<float> vec_fImag;
+			CopySafeArrayToVector(saReal, vec_fReal);
+			CopySafeArrayToVector(saImag, vec_fImag);
+			AddUp(vec_fReal, vec_fAvgReal);
+			AddUp(vec_fImag, vec_fAvgImag);
+		}
+
+		if (saReal!=NULL)
+			SafeArrayDestroy(saReal);
+		if (saImag!=NULL)
+			SafeArrayDestroy(saImag);
+		lValidPoints++;
+	}
+
+	// normalize average to the number of valid points
+	if (lValidPoints > 1)
+	{
+		Normalize(vec_fAvgReal, lValidPoints);
+		Normalize(vec_fAvgImag, lValidPoints);
+	}
+} // CalcComplexAverage()
+
+
+void CCplxPointAvgDlg::AddUp(const std::vector<float>& vec_fPoint, std::vector<float>& vec_fAvg)
+{
+	std::vector<float>::iterator itAvg;
+	std::vector<float>::const_iterator itPoint;
+	for (itAvg = vec_fAvg.begin(), itPoint = vec_fPoint.begin();
+		 itAvg != vec_fAvg.end() && itPoint != vec_fPoint.end(); ++itAvg, ++itPoint)
+	{
+		*itAvg += *itPoint;
+	}
+
+} // AddUp()
+
+
+void CCplxPointAvgDlg::Normalize(std::vector<float>& vec_fAvg, long lNorm)
+{
+	for (std::vector<float>::iterator it = vec_fAvg.begin(); it < vec_fAvg.end(); ++it)
+	{
+		*it /= lNorm;
+	}
+} // Normalize()
+
+
+void CCplxPointAvgDlg::SaveToAscii(IPolyFile11Ptr& spIPolyFile, CString strFileName, std::vector<float>& vec_fAvgReal, std::vector<float>& vec_fAvgImag, IDisplay2Ptr& spIDisplayReal, IDisplay2Ptr& spIDisplayImag, IXAxisPtr& spIXAxis)
+{
+	CWaitCursor cWait;
+	
+	
+	std::ofstream stream;
+	stream.open(strFileName);
+
+	// write description of signals
+	_bstr_t bstrSignal = spIDisplayReal->Signal->Name;
+	_bstr_t bstrChannel = spIDisplayReal->Signal->Channel->Name;
+	_bstr_t bstrDomain = spIDisplayReal->Signal->Channel->Domain->Name;
+	stream << "Complex Average over all valid measurement points - Polytec File Access DEMO" << std::endl;
+	stream << std::endl;
+	stream << "Signal: " << (char*) bstrDomain << " / " << (char*) bstrChannel << " / " << (char*) bstrSignal << std::endl;
+	stream << std::endl;
+	stream << "\t" << (char*)spIDisplayReal->Name << "\t" << (char*)spIDisplayImag->Name << std::endl;
+
+	// write units
+	_bstr_t bstrRealUnit = spIDisplayReal->Signal->Description->YAxis->Unit;
+	_bstr_t bstrImagUnit = spIDisplayImag->Signal->Description->YAxis->Unit;
+	stream << "[Hz]\t[" << (char*)bstrRealUnit << "]\t[" << (char*)bstrImagUnit << "]" << std::endl;
+
+	double dFreq = 0.0;
+	// write data
+	for(ULONG ul = 0; ul < vec_fAvgReal.size(); ++ul)
+	{
+		dFreq = spIXAxis->GetMidX(ul);
+		stream << dFreq << "\t" << vec_fAvgReal[ul] << "\t" << vec_fAvgImag[ul] << std::endl;
+	}
+	stream.close();
+} // SaveToAscii()
