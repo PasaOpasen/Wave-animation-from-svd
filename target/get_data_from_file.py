@@ -80,6 +80,8 @@ def get_point(filename, domainname = 'Time', channelname = 'Vib', signalname = '
     """
     file = Dispatch('PolyFile.PolyFile') 
     
+    print(f"Load datapoints from {filename}")
+    
     try:
         file.Open(filename) 
         pointdomains = file.GetPointDomains() 
@@ -136,7 +138,8 @@ def get_point(filename, domainname = 'Time', channelname = 'Vib', signalname = '
         if (point == 0):
             # get data of all points
             y = [] 
-            for i in range(1,datapoints.count):
+            ct = datapoints.count
+            for i in range(1,ct):
                 datapoint = datapoints.Item(i) 
                 if 'ptcChannelCapsUser' in str(channel.caps):        
                     ytemp = np.array([float(val) for val in datapoint.GetData(display, frame)])
@@ -159,6 +162,8 @@ def get_point(filename, domainname = 'Time', channelname = 'Vib', signalname = '
                         y[i-1,:] = ytemp 
                     except:
                         pass
+                if i%80 == 0:
+                    print("---> {:.2%}".format(i/ct))
                      
                  
                     #usd.YCount = y.shape[0]/usd.XCount
@@ -202,14 +207,23 @@ def find_net(filename):
                 break
             x, y = i, int(t)
     
-    print(f"xcount = {x}  ycount = {y}")
+    print(f"Found: xcount = {x}  ycount = {y}")
+    print()
     
     return np.linspace(xmin, xmax, x), np.linspace(ymin, ymax, y)
     
 
-
-
-
+def get_all_data(filename):
+           
+    xnet, ynet = find_net(filename)
+    
+    time, dt, _ = get_point(filename)
+    
+    data = dt.T.reshape(dt.shape[1], xnet.shape[0], ynet.shape[0])
+    
+    return data, xnet, ynet, time
+    
+    
 
     
 filename = r"D:\svd_to_animation\3Lines_scan_pulse_1mus_70Vpp.svd"   
@@ -219,61 +233,49 @@ filename = r"D:\svd_to_animation\Scan_time_CA_6mm_pulse_sw2_114kHz_BigScan.svd"
 filename = r"D:\svd_to_animation\Scan_time_10-30_area_hann7_143kHz.svd"
 
 
-data = XYZ(filename)
+# data = XYZ(filename)
 
-for i in range(1,7):
-    for j in range(1,7):
+# for i in range(1,7):
+#     for j in range(1,7):
           
-        xset = set(data[:,0].round(i))
-        yset = set(data[:,1].round(j))
+#         xset = set(data[:,0].round(i))
+#         yset = set(data[:,1].round(j))
         
-        print(f'{i} {j}  xlen = {len(xset)}  ylen = {len(yset)}  all = {len(xset)*len(yset)} vs {data.shape[0]}')
+#         print(f'{i} {j}  xlen = {len(xset)}  ylen = {len(yset)}  all = {len(xset)*len(yset)} vs {data.shape[0]}')
 
 
 
 
-import pylab
+# import pylab
 
-pylab.scatter(data[:,0], data[:,1])
-
-
-
-xmax= data[:,0].max()
-xmin = data[:,0].min()
-
-for i in range(2,data.shape[0]):
-    t = data.shape[0]/i
-    if t == int(t):
-        if data[i-1,0] > data[i,0]:
-            break
-        x, y = i, int(t)
+# pylab.scatter(data[:,0], data[:,1])
 
 
+
+# xmax= data[:,0].max()
+# xmin = data[:,0].min()
+
+# for i in range(2,data.shape[0]):
+#     t = data.shape[0]/i
+#     if t == int(t):
+#         if data[i-1,0] > data[i,0]:
+#             break
+#         x, y = i, int(t)
 
 
 
 
+#xnet, ynet = find_net(filename)
 
+#time, dt, _ = get_point(filename)
 
-    
-
-xnet, ynet = find_net(filename)
-
-time, dt, _ = get_point(filename)
-
-data = dt.T.reshape(dt.shape[1], xnet.shape[0], ynet.shape[0])
+#data = dt.T.reshape(dt.shape[1], xnet.shape[0], ynet.shape[0])
 
 
 
 
 
-
-
-
-
-
-
-
+# data, x, y, t = get_all_data(filename)
 
 
 
