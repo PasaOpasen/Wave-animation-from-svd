@@ -65,7 +65,7 @@ try:
     xaxis = signalDesc.XAxis 
     yaxis = signalDesc.YAxis 
     #x = xaxis.Min:(xaxis.Max - xaxis.Min)/(xaxis.MaxCount - 1):xaxis.Max 
-    x = np.arange(xaxis.Min,xaxis.Max,(xaxis.Max - xaxis.Min)/(xaxis.MaxCount - 1))
+    x = np.linspace(xaxis.Min,xaxis.Max,xaxis.MaxCount)
     
     usd = Empty()
     
@@ -96,13 +96,13 @@ try:
     # usd.DbReference = signalDesc.DbReference 
     # usd.XName = xaxis.Name 
     # usd.XUnit = xaxis.Unit 
-    # usd.XMin = xaxis.Min 
-    # usd.XMax = xaxis.Max 
-    # usd.XCount = xaxis.MaxCount 
+    usd.XMin = xaxis.Min 
+    usd.XMax = xaxis.Max 
+    usd.XCount = xaxis.MaxCount 
     # usd.YName = yaxis.Name 
     # usd.YUnit = yaxis.Unit 
-    # usd.YMin = yaxis.Min 
-    # usd.YMax = yaxis.Max 
+    usd.YMin = yaxis.Min 
+    usd.YMax = yaxis.Max 
     
     #
     datapoints = pointdomain.datapoints 
@@ -112,37 +112,37 @@ try:
         for i in range(1,datapoints.count):
             datapoint = datapoints.Item(i) 
             if 'ptcChannelCapsUser' in str(channel.caps):        
-                ytemp = float(datapoint.GetData(display, frame)) 
+                ytemp = np.array([float(val) for val in datapoint.GetData(display, frame)])
                 if (len(ytemp) > 0):
                     # not all points might have user defined data attached.
                     # polytec file access returns an empty array in this case.
                     if (len(y)==0):
                         y = np.zeros((datapoints.count, len(ytemp)))
                      
-                    y[i,1:len(ytemp)] = ytemp 
+                    y[i-1,:] = ytemp 
                  
             else:
                 try:
                     # ignore errors because of invalid data, the result row
                     # will contain zeros in this case
-                    ytemp = float(datapoint.GetData(display, frame)) 
+                    ytemp = np.array([float(val) for val in datapoint.GetData(display, frame)])
                     if len(y)==0:
                         y = np.zeros((datapoints.count, len(ytemp)))
               
-                    y[i,:] = ytemp 
+                    y[i-1,:] = ytemp 
                 except:
                     pass
                  
              
-         
+                #usd.YCount = y.shape[0]/usd.XCount
     else:
         datapoint = datapoints.Item(point) 
-        y = float(datapoint.GetData(display, frame)) 
+        y = np.array([float(val) for val in datapoint.GetData(display, frame)]) 
      
     # handle complex data
-    if usd.Complex == 1 and 'ptcDisplayRealImag' in str(display.Type):
-        realData = y[:,1::2]
-        imagData = y[:,2::2]
+    if usd.Complex:# and 'ptcDisplayRealImag' in str(display.Type):
+        realData = y[:,0::2]
+        imagData = y[:,1::2]
         y = realData + imagData*np.complex(0,1)
      
     #
