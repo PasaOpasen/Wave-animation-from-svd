@@ -30,21 +30,40 @@ namespace Svd_to_animation
                 get_image = i => bitmaps[i];
 
 
-            GetParams(folder,wanna_speed);
+            GetParams(folder, wanna_speed);
 
-   
+
             trackBar1.ValueChanged += (o, e) =>
               {
                   label1.Text = $"time is {vals[trackBar1.Value]}";
                   pictureBox1.BackgroundImage = get_image(trackBar1.Value);
               };
+            trackBar2.ValueChanged += (o, e) =>
+            {
+                if (trackBar2.Value <= trackBar3.Value)
+                    trackBar2.Value = trackBar3.Value + 1;
+
+                right = trackBar2.Value;
+                label4.Text = $"{vals[trackBar2.Value]}";
+            };
+            trackBar3.ValueChanged += (o, e) =>
+            {
+                if (trackBar3.Value >= trackBar2.Value)
+                    trackBar3.Value = trackBar2.Value - 1;
+
+                left = trackBar3.Value;
+                label3.Text = $"{vals[trackBar3.Value]}";
+            };
+
+            trackBar2.Value = right;
+            trackBar3.Value = 1; trackBar3.Value = 0;
 
             timer1.Interval = 40;
             timer1.Tick += (o, e) =>
             {
                 int val = trackBar1.Value;
-                if (val == trackBar1.Maximum)
-                    trackBar1.Value = trackBar1.Minimum;
+                if (val >= right)
+                    trackBar1.Value = left;
                 else
                     trackBar1.Value = val + 1;
             };
@@ -61,6 +80,7 @@ namespace Svd_to_animation
         private Bitmap[] bitmaps;
         private bool shouldRun = false;
         private Func<int, Image> get_image;
+        private int left, right;
 
         private void GetParams(string folder, bool wanna_speed)
         {
@@ -72,16 +92,23 @@ namespace Svd_to_animation
 
             trackBar1.Minimum = 0;
             trackBar1.Maximum = st.Length - 1;
+            trackBar2.Minimum = 0;
+            trackBar2.Maximum = st.Length - 1;
+            trackBar3.Minimum = 0;
+            trackBar3.Maximum = st.Length - 1;
+            left = 0;
+            right = st.Length - 1;
 
-            
+
+
             if (wanna_speed)
             {
-bitmaps = new Bitmap[st.Length];
-for (int i = 0; i < st.Length; i++)
-                bitmaps[i] = new Bitmap(Path.Combine(folder, st[i]));
+                bitmaps = new Bitmap[st.Length];
+                for (int i = 0; i < st.Length; i++)
+                    bitmaps[i] = new Bitmap(Path.Combine(folder, st[i]));
 
             }
-            
+
             pictureBox1.BackgroundImage = get_image(0);
         }
 
@@ -95,7 +122,7 @@ for (int i = 0; i < st.Length; i++)
 
         }
 
-        private  void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             shouldRun = !shouldRun;
             if (shouldRun)
@@ -108,7 +135,7 @@ for (int i = 0; i < st.Length; i++)
                 button1.Text = "Auto Run";
                 timer1.Stop();
             }
-        
+
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
