@@ -41,8 +41,13 @@ pip install matplotlib
   
 ## Example
 
+**Start:**
 
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/start.gif)
 
+**Result:**
+
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/result.gif)
 
 
 
