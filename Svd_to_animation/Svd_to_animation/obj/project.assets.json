@@ -1,0 +1,130 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MathClassesDmPa/0.9.0.2": {
+        "type": "package",
+        "dependencies": {
+          "MathNet.Numerics": "4.9.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/MathClassesLibrary.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MathClassesLibrary.dll": {}
+        }
+      },
+      "MathNet.Numerics/4.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MathNet.Numerics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MathNet.Numerics.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MathClassesDmPa/0.9.0.2": {
+      "sha512": "oSZ/+2fYFF8lfDka9M1Tc2Im+2+j+mYVcl5mu1K/M3VENGV0ICO3iBXeMVqeSOR/OBNGfPBsf+0D8hjCUCPx2w==",
+      "type": "package",
+      "path": "mathclassesdmpa/0.9.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/MathClassesLibrary.dll",
+        "mathclassesdmpa.0.9.0.2.nupkg.sha512",
+        "mathclassesdmpa.nuspec"
+      ]
+    },
+    "MathNet.Numerics/4.9.0": {
+      "sha512": "4cYzhuMDq57oC6lwhMmuigdhP+oywmp1bMtFzvzz4wYr5eWbg0JLDPo/L1juqDkIBj+rc3FrxUEX7jcHRmnF+w==",
+      "type": "package",
+      "path": "mathnet.numerics/4.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/MathNet.Numerics.dll",
+        "lib/net40/MathNet.Numerics.xml",
+        "lib/net461/MathNet.Numerics.dll",
+        "lib/net461/MathNet.Numerics.xml",
+        "lib/netstandard1.3/MathNet.Numerics.dll",
+        "lib/netstandard1.3/MathNet.Numerics.xml",
+        "lib/netstandard2.0/MathNet.Numerics.dll",
+        "lib/netstandard2.0/MathNet.Numerics.xml",
+        "mathnet.numerics.4.9.0.nupkg.sha512",
+        "mathnet.numerics.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "MathClassesDmPa >= 0.9.0.2"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\qtckp\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\qtckp\\OneDrive\\Рабочий стол\\Wave-animation-from-svd\\Svd_to_animation\\Svd_to_animation\\Svd_to_animation.csproj",
+      "projectName": "Svd_to_animation",
+      "projectPath": "C:\\Users\\qtckp\\OneDrive\\Рабочий стол\\Wave-animation-from-svd\\Svd_to_animation\\Svd_to_animation\\Svd_to_animation.csproj",
+      "packagesPath": "C:\\Users\\qtckp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\qtckp\\OneDrive\\Рабочий стол\\Wave-animation-from-svd\\Svd_to_animation\\Svd_to_animation\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\qtckp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "dependencies": {
+          "MathClassesDmPa": {
+            "target": "Package",
+            "version": "[0.9.0.2, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

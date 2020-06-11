@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svd_to_animation", "Svd_to_animation\Svd_to_animation.csproj", "{4119B65C-C4EA-4186-9A20-7743288A451E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4119B65C-C4EA-4186-9A20-7743288A451E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4119B65C-C4EA-4186-9A20-7743288A451E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4119B65C-C4EA-4186-9A20-7743288A451E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4119B65C-C4EA-4186-9A20-7743288A451E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D9E3BC8-B212-495E-ABEB-5C9728DD0BF8}
+	EndGlobalSection
+EndGlobal
