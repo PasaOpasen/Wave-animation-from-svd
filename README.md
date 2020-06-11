@@ -25,7 +25,7 @@ pip install matplotlib
 
 2. Туда копируются скрипты и вспомогательные файлы
 
-3. Запускается [**create.py**](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/target/create.py). Если нужно поменять какие-то параметры изображений, в скрипте это легко делается. Суть скрипта:
+3. Запускается [**create.py**](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/target/create.py). Если нужно поменять какие-то параметры изображений, в скрипте это легко делается (в том числе [цветовая палитра](https://matplotlib.org/3.2.1/tutorials/colors/colormaps.html)). Суть скрипта:
   
     1. Сначала информация из целевого файла конвертируется в массивы numpy (может занять минуту)
   
