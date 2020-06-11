@@ -45,9 +45,13 @@ pip install matplotlib
 
 ![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/start.gif)
 
-**Result:**
+**Result 1.0.0:**
 
 ![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/result.gif)
+
+**Result 1.1.0:**
+
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/result2.gif)
 
 
 
