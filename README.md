@@ -21,7 +21,7 @@ pip install matplotlib
 
 ## По поводу алгоритма
 
-1. Выбираются нужные директории для сохранения и целевой файл
+1. Выбираются нужные директории для сохранения в целевой файл
 
 2. Туда копируются скрипты и вспомогательные файлы
 
@@ -41,8 +41,13 @@ pip install matplotlib
   
 ## Example
 
+**Start:**
 
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/start.gif)
 
+**Result:**
+
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/result.gif)
 
 
 
