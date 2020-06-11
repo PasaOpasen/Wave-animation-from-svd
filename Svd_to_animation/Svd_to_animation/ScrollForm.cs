@@ -15,15 +15,28 @@ namespace Svd_to_animation
 {
     public partial class ScrollForm : Form
     {
-        public ScrollForm(string folder)
+        public ScrollForm(string folder, bool wanna_speed = true)
         {
             InitializeComponent();
-            GetParams(folder);
 
+            get_image = i =>
+            {
+                if (i % 10 == 0)
+                    GC.Collect();
+
+                return new Bitmap(Path.Combine(folder, st[i]));
+            };
+            if (wanna_speed)
+                get_image = i => bitmaps[i];
+
+
+            GetParams(folder,wanna_speed);
+
+   
             trackBar1.ValueChanged += (o, e) =>
               {
                   label1.Text = $"time is {vals[trackBar1.Value]}";
-                  pictureBox1.BackgroundImage = bitmaps[trackBar1.Value];
+                  pictureBox1.BackgroundImage = get_image(trackBar1.Value);
               };
 
             timer1.Interval = 40;
@@ -38,8 +51,8 @@ namespace Svd_to_animation
 
             numericUpDown1.Value = 30;
             numericUpDown1.Minimum = 10;
-            numericUpDown1.Maximum = 500;
-            numericUpDown1.Increment = 30;
+            numericUpDown1.Maximum = 700;
+            numericUpDown1.Increment = 50;
 
         }
 
@@ -47,8 +60,9 @@ namespace Svd_to_animation
         private double[] vals;
         private Bitmap[] bitmaps;
         private bool shouldRun = false;
+        private Func<int, Image> get_image;
 
-        private void GetParams(string folder)
+        private void GetParams(string folder, bool wanna_speed)
         {
             st = Expendator.GetStringArrayFromFile(Path.Combine(folder, "times.txt"));
 
@@ -59,11 +73,16 @@ namespace Svd_to_animation
             trackBar1.Minimum = 0;
             trackBar1.Maximum = st.Length - 1;
 
-            bitmaps = new Bitmap[st.Length];
-            for (int i = 0; i < st.Length; i++)
+            
+            if (wanna_speed)
+            {
+bitmaps = new Bitmap[st.Length];
+for (int i = 0; i < st.Length; i++)
                 bitmaps[i] = new Bitmap(Path.Combine(folder, st[i]));
 
-            pictureBox1.BackgroundImage = bitmaps[0];
+            }
+            
+            pictureBox1.BackgroundImage = get_image(0);
         }
 
 

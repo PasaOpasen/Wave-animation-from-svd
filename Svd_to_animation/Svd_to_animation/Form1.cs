@@ -19,12 +19,15 @@ namespace Svd_to_animation
         {
             InitializeComponent();
             InitFolder();
+
             button3.Hide();
+            radioButton1.Hide();
+            radioButton2.Hide();
 
             toolStrip1.Hide();
             toolStripLabel1.Text = "Выберите нужные директории";
 
-            new ScrollForm(@"D:\svd_to_animation\Results\Scan_time_10-30_area_hann7_143kHz").Show();
+            //new ScrollForm(@"D:\svd_to_animation\Results\Scan_time_10-30_area_hann7_143kHz",false).Show();
         }
 
         public string storageDirectoryFile = "StorageDirectory.txt";
@@ -85,6 +88,8 @@ namespace Svd_to_animation
                     //Get the path of specified file
                     textBox2.Text = openFileDialog.FileName;
                     button3.Show();
+                    radioButton1.Show();
+                    radioButton2.Show();
                 }
             }
 
@@ -124,6 +129,16 @@ namespace Svd_to_animation
 
             Expendator.WriteStringInFile(Path.Combine(newFolder, "path.txt"), textBox2.Text);
 
+            if (File.Exists(Path.Combine(newFolder, "times.txt")))
+            {
+                var res = MessageBox.Show("В целевой папке обнаружены файлы с рисунками. Открыть их или запустить вычисления для создания новых файлов? ДА значит ОТКРЫТЬ", "Выполнять вычисления?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(res == DialogResult.Yes)
+                {
+                    new ScrollForm(newFolder, radioButton1.Checked).Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    return;
+                }
+            }
 
             this.Hide();
 
@@ -131,8 +146,12 @@ namespace Svd_to_animation
 
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.end);
                 player.Play();
-                this.Show();
+               
 
+                new ScrollForm(newFolder, radioButton1.Checked).Show();
+
+                this.WindowState = FormWindowState.Minimized;
+                this.Show();
             });
         }
          
@@ -161,6 +180,12 @@ namespace Svd_to_animation
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start("https://github.com/PasaOpasen/Wave-animation-from-svd");
+            System.Diagnostics.Process.Start("cmd", "/C start https://github.com/PasaOpasen/Wave-animation-from-svd");
         }
     }
 }

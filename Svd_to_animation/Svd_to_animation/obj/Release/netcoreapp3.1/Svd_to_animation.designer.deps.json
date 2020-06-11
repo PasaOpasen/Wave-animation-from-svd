@@ -1,0 +1,46 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MathClassesDmPa/0.9.0.2": {
+        "dependencies": {
+          "MathNet.Numerics": "4.9.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/MathClassesLibrary.dll": {
+            "assemblyVersion": "0.9.0.2",
+            "fileVersion": "0.9.0.2"
+          }
+        }
+      },
+      "MathNet.Numerics/4.9.0": {
+        "runtime": {
+          "lib/netstandard2.0/MathNet.Numerics.dll": {
+            "assemblyVersion": "4.9.0.0",
+            "fileVersion": "4.9.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MathClassesDmPa/0.9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oSZ/+2fYFF8lfDka9M1Tc2Im+2+j+mYVcl5mu1K/M3VENGV0ICO3iBXeMVqeSOR/OBNGfPBsf+0D8hjCUCPx2w==",
+      "path": "mathclassesdmpa/0.9.0.2",
+      "hashPath": "mathclassesdmpa.0.9.0.2.nupkg.sha512"
+    },
+    "MathNet.Numerics/4.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4cYzhuMDq57oC6lwhMmuigdhP+oywmp1bMtFzvzz4wYr5eWbg0JLDPo/L1juqDkIBj+rc3FrxUEX7jcHRmnF+w==",
+      "path": "mathnet.numerics/4.9.0",
+      "hashPath": "mathnet.numerics.4.9.0.nupkg.sha512"
+    }
+  }
+}
