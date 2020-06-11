@@ -35,6 +35,12 @@ namespace Svd_to_animation
                 else
                     trackBar1.Value = val + 1;
             };
+
+            numericUpDown1.Value = 30;
+            numericUpDown1.Minimum = 10;
+            numericUpDown1.Maximum = 500;
+            numericUpDown1.Increment = 30;
+
         }
 
         private string[] st;
