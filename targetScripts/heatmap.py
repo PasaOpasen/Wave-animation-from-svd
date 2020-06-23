@@ -85,7 +85,7 @@ def save_heatmaps(data, xnet, ynet,  timenet, every = 20, dpi = 350, out_file = 
 
 #data, x, y, t = get_all_data(filename)
 
-save_heatmaps(data, x, y, t)
+#save_heatmaps(data, x, y, t)
 
 
 #tmp = data[500,:,:]
