@@ -65,8 +65,7 @@ from heatmap import heatmap2d
 
 heatmap2d(data[560,:,:])
 
-save_heatmap_cmap(data, x, y, [
-    'viridis', 'plasma', 'inferno', 'magma', 'cividis',
+cmaps = ['viridis', 'plasma', 'inferno', 'magma', 'cividis',
     
     'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
             'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
@@ -84,7 +83,9 @@ save_heatmap_cmap(data, x, y, [
                          'flag', 'prism', 'ocean', 'gist_earth', 'terrain', 'gist_stern',
             'gnuplot', 'gnuplot2', 'CMRmap', 'cubehelix', 'brg',
             'gist_rainbow', 'rainbow', 'jet', 'nipy_spectral', 'gist_ncar'
-    ], 450)
+    ]
+
+save_heatmap_cmap(data, x, y, cmaps , 560)
 
 
 
