@@ -17,7 +17,7 @@ def heatmap2d(arr: np.ndarray):
     plt.show()
 
 
-def save_heatmaps(data, xnet, ynet,  timenet, every = 20, dpi = 350, out_file = 'times.txt', quantile = 0.001):
+def save_heatmaps(data, xnet, ynet,  timenet, every = 20, dpi = 350, out_file = 'times.txt', quantile = 0.001, cmap = 'PiYG'):
         
     a, b = np.meshgrid(xnet, ynet)
     
@@ -39,7 +39,7 @@ def save_heatmaps(data, xnet, ynet,  timenet, every = 20, dpi = 350, out_file = 
     print(f'{d} and {1-d} quantiles: {l_c}, {r_c}')
     
     levels = MaxNLocator(nbins=15).tick_values(l_c, r_c)
-    cmap = plt.get_cmap('PiYG')
+    cmap = plt.get_cmap(cmap)
     
     tmp = 0
     print('Start creating and saving heatmaps...')
@@ -85,7 +85,7 @@ def save_heatmaps(data, xnet, ynet,  timenet, every = 20, dpi = 350, out_file = 
 
 #data, x, y, t = get_all_data(filename)
 
-# save_heatmaps(data, x, y, t)
+save_heatmaps(data, x, y, t)
 
 
 #tmp = data[500,:,:]

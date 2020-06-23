@@ -10,17 +10,18 @@ from get_data_from_file import get_all_data
 import os
 
 
-def create_maps(filename, dpi = 350, quantile = 0.001):
+def create_maps(filename, dpi = 350, quantile = 0.001, cmap = 'PiYG'):
+    
     data, x, y, t = get_all_data(filename)
 
-    print(f'data.shape = {data.shape}')
+    print(f'data.shape = {data.shape}\n')
     print(f'x axis: min = {x.min()}, max = {x.max()}, count = {len(x)}\n')
     print(f'y axis: min = {y.min()}, max = {y.max()}, count = {len(y)}\n')
     print(f'time: min = {t.min()}, max = {t.max()}, count = {len(t)}\n')
 
     every = int(input('Show every (how much?) time sample: '))
 
-    save_heatmaps(data, x, y, t, every = every, dpi = dpi, quantile = quantile)
+    save_heatmaps(data, x, y, t, every = every, dpi = dpi, quantile = quantile, cmap = cmap)
     
     
 if __name__ == '__main__':

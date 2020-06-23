@@ -7,6 +7,7 @@ Created on Wed Jun 10 14:44:07 2020
 
 from win32com.client import Dispatch
 import numpy as np
+#import numba
 
 class Empty:
     pass
@@ -142,7 +143,7 @@ def get_point(filename, domainname = 'Time', channelname = 'Vib', signalname = '
             for i in range(1,ct):
                 datapoint = datapoints.Item(i) 
                 if 'ptcChannelCapsUser' in str(channel.caps):        
-                    ytemp = np.array([float(val) for val in datapoint.GetData(display, frame)])
+                    ytemp = np.array(map(float,datapoint.GetData(display, frame)))
                     if (len(ytemp) > 0):
                         # not all points might have user defined data attached.
                         # polytec file access returns an empty array in this case.
@@ -275,12 +276,12 @@ filename = r"D:\svd_to_animation\Scan_time_10-30_area_hann7_143kHz.svd"
 
 
 
-# data, x, y, t = get_all_data(filename)
+#data, x, y, t = get_all_data(filename)
 
 
-
-
-
+#%time get_all_data(filename)
+#%time numba.jit(get_all_data(filename))
+#%time numba.jit(get_all_data(filename),parallel = True)
 
 
 
