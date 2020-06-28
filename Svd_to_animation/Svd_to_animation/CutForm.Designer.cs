@@ -43,6 +43,7 @@
             this.trackBar5 = new System.Windows.Forms.TrackBar();
             this.trackBar6 = new System.Windows.Forms.TrackBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -189,12 +190,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Tomato;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(229, 533);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(267, 48);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "RUN";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // CutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(842, 530);
+            this.ClientSize = new System.Drawing.Size(722, 605);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -235,5 +249,6 @@
         private System.Windows.Forms.TrackBar trackBar5;
         private System.Windows.Forms.TrackBar trackBar6;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button1;
     }
 }

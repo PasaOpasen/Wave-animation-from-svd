@@ -7,6 +7,7 @@ Created on Wed Jun 10 14:44:07 2020
 
 from win32com.client import Dispatch
 import numpy as np
+import os
 #import numba
 
 class Empty:
@@ -215,12 +216,26 @@ def find_net(filename):
     
 
 def get_all_data(filename):
-           
+          
+    dr = os.path.dirname(__file__)
+    save_file = os.path.join(dr,'data.npz')
+    
+    if os.path.exists(save_file):
+        print(f'loading saved data from {save_file}...')
+        with np.load(save_file) as d:
+            return d['data'], d['xnet'], d['ynet'], d['time']
+    
     xnet, ynet = find_net(filename)
     
     time, dt, _ = get_point(filename)
     
     data = dt.T.reshape(dt.shape[1], xnet.shape[0], ynet.shape[0])
+    
+    print(f'saving data to {save_file}...')
+    np.savez(save_file, data = data, xnet = xnet, ynet = ynet, time = time)
+    
+    with open(os.path.join(dr,'space.txt'),'w') as f:
+        f.write(f'{xnet[0]} {xnet[-1]} {xnet.size} {ynet[0]} {ynet[-1]} {ynet.size} {time[0]} {time[-1]} {time.size}')
     
     return data, xnet, ynet, time
     

@@ -8,11 +8,22 @@ Created on Wed Jun 10 20:59:18 2020
 from heatmap import save_heatmaps
 from get_data_from_file import get_all_data
 import os
+import sys
 
 
-def create_maps(filename, dpi = 350, quantile = 0.001, cmap = 'PiYG'):
+def create_maps(filename, positions=[], dpi = 350, quantile = 0.001, cmap = 'PiYG'):
     
     data, x, y, t = get_all_data(filename)
+    
+    if len(positions)>0:
+        s1 = slice(positions[0],positions[1]+1)
+        s2 = slice(positions[2],positions[3]+1)
+        s3 = slice(positions[4],positions[5]+1)
+        x = x[s1]
+        y = y[s2]
+        t = t[s3]
+        data = data[s3,s1,s2]
+        
 
     print(f'data.shape = {data.shape}\n')
     print(f'x axis: min = {x.min()}, max = {x.max()}, count = {len(x)}\n')
@@ -31,7 +42,7 @@ if __name__ == '__main__':
     with open('path.txt') as f:
         filename = f.readline().strip()
     
-    create_maps(filename)
+    create_maps(filename, positions = sys.argv[2:])
 
 
 

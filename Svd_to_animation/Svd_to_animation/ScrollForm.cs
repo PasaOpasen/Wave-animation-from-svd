@@ -15,9 +15,15 @@ namespace Svd_to_animation
 {
     public partial class ScrollForm : Form
     {
+
         public ScrollForm(string folder, bool wanna_speed = true)
         {
             InitializeComponent();
+
+            this.folder = folder;
+
+            if(!File.Exists(Path.Combine(folder,"space.txt")))
+               button2.Hide();
 
             get_image = i =>
             {
@@ -81,6 +87,7 @@ namespace Svd_to_animation
         private bool shouldRun = false;
         private Func<int, Image> get_image;
         private int left, right;
+        private string folder;
 
         private void GetParams(string folder, bool wanna_speed)
         {
@@ -136,6 +143,11 @@ namespace Svd_to_animation
                 timer1.Stop();
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new CutForm(this.folder,this).Show();
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

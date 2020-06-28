@@ -28,7 +28,7 @@ namespace Svd_to_animation
             toolStripLabel1.Text = "Выберите нужные директории";
 
             //new ScrollForm(@"D:\svd_to_animation\Results\Scan_time_10-30_area_hann7_143kHz",false).Show();
-            new CutForm(new NetOnDouble(0.1, 0.5, 60), 12, 56, new NetOnDouble(-0.5,0.5,100),10,90,new NetOnDouble(0,999,1000),100,-1).Show();
+            //new CutForm(new NetOnDouble(0.1, 0.5, 60),  new NetOnDouble(-0.5,0.5,100),new NetOnDouble(0,999,1000)).Show();
         }
 
         public string storageDirectoryFile = "StorageDirectory.txt";
@@ -162,7 +162,7 @@ namespace Svd_to_animation
             process.StartInfo.FileName = fileName;
             process.EnableRaisingEvents = true;
             process.StartInfo.UseShellExecute = true;
-            process.StartInfo.Arguments = "py.exe";
+            process.StartInfo.Arguments = "python.exe";
 
             process.Exited += (sender, e) => act();
             process.Start();
