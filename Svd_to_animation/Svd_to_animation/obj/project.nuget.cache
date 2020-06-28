@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "R+3VH0L/cWc3qBCIWUy3ZXaYAL1DQOWsSKetf50LeDQOh7beMy44xlQsPa7SFhsvCge4rkjwuv9m+fE2nWWVRg==",
+  "dgSpecHash": "tfL0YbMaG3cs+IwkcvQlp12Cg5lHf7kt9g7kn+UkC1d8hA3MEkiFeBboIYHhFp7INdXM6U/qhQVy1+rqISeBZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\qtckp\\OneDrive\\Рабочий стол\\Wave-animation-from-svd\\Svd_to_animation\\Svd_to_animation\\Svd_to_animation.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\qtckp\\.nuget\\packages\\mathclassesdmpa\\0.9.0.2\\mathclassesdmpa.0.9.0.2.nupkg.sha512",
+    "C:\\Users\\qtckp\\.nuget\\packages\\mathclassesdmpa\\0.9.1\\mathclassesdmpa.0.9.1.nupkg.sha512",
     "C:\\Users\\qtckp\\.nuget\\packages\\mathnet.numerics\\4.9.0\\mathnet.numerics.4.9.0.nupkg.sha512"
   ],
   "logs": []

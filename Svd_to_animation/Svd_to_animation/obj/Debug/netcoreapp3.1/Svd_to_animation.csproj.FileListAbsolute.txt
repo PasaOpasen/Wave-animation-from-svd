@@ -18,3 +18,4 @@ C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Svd_to_a
 C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Svd_to_animation\Svd_to_animation\obj\Debug\netcoreapp3.1\Svd_to_animation.Properties.Resources.resources
 C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Svd_to_animation\Svd_to_animation\obj\Debug\netcoreapp3.1\Svd_to_animation.ScrollForm.resources
 C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Svd_to_animation\Svd_to_animation\obj\Debug\netcoreapp3.1\Svd_to_animation.csprojAssemblyReference.cache
+C:\Users\qtckp\OneDrive\Рабочий стол\Wave-animation-from-svd\Svd_to_animation\Svd_to_animation\obj\Debug\netcoreapp3.1\Svd_to_animation.CutForm.resources
