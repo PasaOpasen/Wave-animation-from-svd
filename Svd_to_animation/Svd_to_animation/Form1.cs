@@ -28,7 +28,7 @@ namespace Svd_to_animation
             toolStripLabel1.Text = "Выберите нужные директории";
 
             //new ScrollForm(@"D:\svd_to_animation\Results\Scan_time_10-30_area_hann7_143kHz",false).Show();
-            new CutForm(new NetOnDouble(0.1, 0.5, 60), 12, 56).Show();
+            new CutForm(new NetOnDouble(0.1, 0.5, 60), 12, 56, new NetOnDouble(-0.5,0.5,100),10,90,new NetOnDouble(0,999,1000),100,-1).Show();
         }
 
         public string storageDirectoryFile = "StorageDirectory.txt";
