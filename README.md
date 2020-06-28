@@ -16,6 +16,7 @@ Unpack svd files and creating animation of running waves.
 ```
 pip install numpy
 pip install matplotlib
+pip install pywin32
 ```
 
 
