@@ -14,8 +14,9 @@ Unpack svd files and creating animation of running waves.
 4. Open **cmd.exe** and run these commands:
 
 ```
-pip install numpy
-pip install matplotlib
+pip install numpy==1.18.4
+pip install matplotlib==3.2.1
+pip install pywin32==227
 ```
 
 
@@ -58,7 +59,90 @@ pip install matplotlib
 ![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/result2.gif)
 
 
+## Heatmaps
 
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20viridis.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20plasma.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20inferno.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20magma.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20cividis.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Greys.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Purples.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Blues.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Greens.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Oranges.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Reds.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20YlOrBr.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20YlOrRd.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20OrRd.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20PuRd.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20RdPu.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20BuPu.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20GnBu.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20PuBu.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20YlGnBu.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20PuBuGn.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20BuGn.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20YlGn.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20binary.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gist_yarg.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gist_gray.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gray.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20bone.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20pink.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20spring.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20summer.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20autumn.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20winter.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20cool.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Wistia.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20hot.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20afmhot.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gist_heat.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20copper.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20PiYG.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20PRGn.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20BrBG.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20PuOr.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20RdGy.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20RdBu.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20RdYlBu.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20RdYlGn.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Spectral.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20coolwarm.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20bwr.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20seismic.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20twilight.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20twilight_shifted.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20hsv.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Pastel1.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Pastel2.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Paired.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Accent.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Dark2.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Set1.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Set2.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20Set3.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20tab10.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20tab20.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20tab20b.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20tab20c.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20flag.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20prism.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20ocean.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gist_earth.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20terrain.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gist_stern.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gnuplot.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gnuplot2.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20CMRmap.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20cubehelix.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20brg.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gist_rainbow.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20rainbow.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20jet.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20nipy_spectral.png)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/images/cmap%20%3D%20gist_ncar.png)
 
 
 
