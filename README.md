@@ -14,9 +14,9 @@ Unpack svd files and creating animation of running waves.
 4. Open **cmd.exe** and run these commands:
 
 ```
-pip install numpy
-pip install matplotlib
-pip install pywin32
+pip install numpy==1.18.4
+pip install matplotlib==3.2.1
+pip install pywin32==227
 ```
 
 
