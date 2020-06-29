@@ -11,7 +11,7 @@ import os
 import sys
 
 
-def create_maps(filename, positions=[], dpi = 350, quantile = 0.001, cmap = 'PiYG'):
+def create_maps(filename, positions=[], dpi = 350, quantile = 0.001, cmap = 'twilight'):
     
     data, x, y, t = get_all_data(filename)
     
@@ -42,7 +42,10 @@ if __name__ == '__main__':
     with open('path.txt') as f:
         filename = f.readline().strip()
     
-    create_maps(filename, positions = sys.argv[2:])
+    if len(sys.argv)>2:
+        print(f"I see arguments {sys.argv[1:]}")
+    
+    create_maps(filename, positions = [int(a) for a in sys.argv[1:]])
 
 
 

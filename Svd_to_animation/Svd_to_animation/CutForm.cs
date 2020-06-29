@@ -51,7 +51,7 @@ namespace Svd_to_animation
                 this.f.Close();
             this.Hide();
 
-            Program.StartProcess(Path.Combine(this.folder, "create.py", args), () =>
+            Program.StartProcess(Path.Combine(this.folder, "create.py"), () =>
             {
 
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.end);
@@ -61,7 +61,7 @@ namespace Svd_to_animation
 
                 //this.WindowState = FormWindowState.Minimized;
                 this.Close();
-            });
+            }, args);
         }
 
         ScrollForm f;
@@ -71,6 +71,10 @@ namespace Svd_to_animation
             label1.Text = $"xmin = {x[0]}";
             label3.Text = $"ymin = {y[0]}";
             label5.Text = $"tmin = {t[0]}";
+
+            trackBar1.Minimum = 0;
+            trackBar1.Maximum = x.Length - maxstep;
+            trackBar1.Value = xi1 < 0 ? 0 : xi1;
 
             trackBar1.ValueChanged += (o, e) =>
             {
@@ -89,14 +93,16 @@ namespace Svd_to_animation
                 groupBox1.Text = $"X-axis (total: {trackBar2.Value - trackBar1.Value + 1})";
             };
 
-            trackBar1.Minimum = 0;
-            trackBar1.Maximum = x.Length - maxstep;
-            trackBar1.Value = xi1 < 0 ? 0 : xi1;
-
+            
             trackBar2.Minimum = maxstep;
             trackBar2.Maximum = x.Length - 1;
             trackBar2.Value = xi2 < 0 ? x.Length - 1 : xi2;
 
+
+
+            trackBar3.Minimum = 0;
+            trackBar3.Maximum = y.Length - maxstep;
+            trackBar3.Value = yi1 < 0 ? 0 : yi1;
 
             trackBar3.ValueChanged += (o, e) =>
                        {
@@ -116,16 +122,14 @@ namespace Svd_to_animation
             };
 
 
-            trackBar3.Minimum = 0;
-            trackBar3.Maximum = y.Length - maxstep;
-            trackBar3.Value = yi1 < 0 ? 0 : yi1;
-
             trackBar4.Minimum = maxstep;
             trackBar4.Maximum = y.Length - 1;
             trackBar4.Value = yi2 < 0 ? y.Length - 1 : yi2;
 
 
-
+            trackBar5.Minimum = 0;
+            trackBar5.Maximum = t.Length - maxstep;
+            trackBar5.Value = ti1 < 0 ? 0 : ti1;
 
             trackBar5.ValueChanged += (o, e) =>
                         {
@@ -144,9 +148,6 @@ namespace Svd_to_animation
                 groupBox3.Text = $"Time-axis (total: {trackBar6.Value - trackBar5.Value + 1})";
             };
 
-            trackBar5.Minimum = 0;
-            trackBar5.Maximum = t.Length - maxstep;
-            trackBar5.Value = ti1 < 0 ? 0 : ti1;
 
             trackBar6.Minimum = maxstep;
             trackBar6.Maximum = t.Length - 1;

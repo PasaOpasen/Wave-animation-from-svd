@@ -23,11 +23,20 @@ namespace Svd_to_animation
 
         public static void StartProcess(string fileName, Action act, string args="")
         {
+            //Process process = new Process();
+            //process.StartInfo.FileName = fileName;
+            //process.EnableRaisingEvents = true;
+            //process.StartInfo.UseShellExecute = true;
+            //process.StartInfo.Arguments = $"python.exe";
+
+           // var starinfo = new ProcessStartInfo("python.exe");
+            //starinfo.Arguments = $"{fileName} {args}";
+
             Process process = new Process();
             process.StartInfo.FileName = fileName;
             process.EnableRaisingEvents = true;
             process.StartInfo.UseShellExecute = true;
-            process.StartInfo.Arguments = $"python.exe {args}";
+            process.StartInfo.Arguments = $"{args}";
 
             process.Exited += (sender, e) => act();
             process.Start();
