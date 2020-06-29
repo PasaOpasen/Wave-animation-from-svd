@@ -143,7 +143,7 @@ namespace Svd_to_animation
 
             this.Hide();
 
-            StartProcess(Path.Combine(newFolder, "create.py"), () => {
+            Program.StartProcess(Path.Combine(newFolder, "create.py"), () => {
 
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.end);
                 player.Play();
@@ -156,22 +156,7 @@ namespace Svd_to_animation
             });
         }
          
-        private void StartProcess(string fileName, Action act)
-        {
-            Process process = new Process();
-            process.StartInfo.FileName = fileName;
-            process.EnableRaisingEvents = true;
-            process.StartInfo.UseShellExecute = true;
-            process.StartInfo.Arguments = "python.exe";
-
-            process.Exited += (sender, e) => act();
-            process.Start();
-
-            //Process.Start(@"cmd.exe ", @$"py.exe {fileName}");
-
-            process.WaitForExit();
-
-        }
+        
 
 
 
