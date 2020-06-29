@@ -62,11 +62,11 @@ pip install pywin32==227
 
 Cut data:
 
-![1](https://github.com/PasaOpasen/Wave-animation-from-svd..)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/cut1.gif)
 
 See results:
 
-![1](https://github.com/PasaOpasen/Wave-animation-from-svd..)
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/cut2.gif)
 
 ## Heatmaps
 
