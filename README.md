@@ -44,20 +44,29 @@ pip install pywin32==227
 
 **Общая задача**: от пьезоэлементов отходят "волны", которые при благоприятных условиях столкнутся и образуют сильный всплеск как раз в районе дефекта; это столкновение произойдёт в некоторый неизвестный заранее момент времени, который требуется выявить визуально (чтобы локализовать дефект). Для этого рекомендуется сначала проверить 200-500 временных отметок на достаточно большом диапазоне, потом сузить диапазон в 3 раза (взять тот кусок, где явно была активность) и проверить на нём 200-400 отметок; после этого можно ещё раз сузить диапазон и взять больше/меньше отметок уже для демонстрационных целей. В таком случае всего потребуется использовать не более 1500 временных отметок.
 
-## Example
+## Examples
 
 **Start:**
 
 ![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/start.gif)
 
-**Result 1.0.0:**
+**Release 1.0.0:**
 
 ![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/result.gif)
 
-**Result 1.1.0:**
+**Release 1.1.0:**
 
 ![1](https://github.com/PasaOpasen/Wave-animation-from-svd/blob/master/gifs/result2.gif)
 
+**Release 2.0**
+
+Cut data:
+
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd..)
+
+See results:
+
+![1](https://github.com/PasaOpasen/Wave-animation-from-svd..)
 
 ## Heatmaps
 
